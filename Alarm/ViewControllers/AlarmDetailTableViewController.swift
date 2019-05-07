@@ -9,8 +9,8 @@
 import UIKit
 
 class AlarmDetailTableViewController: UITableViewController {
-
-  
+    
+    
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleTextField: UITextField!
@@ -20,9 +20,9 @@ class AlarmDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-   
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
     }
     

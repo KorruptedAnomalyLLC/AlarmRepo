@@ -10,13 +10,14 @@ import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
     
+    // SImilar to a landing pad
     var alarm: Alarm? {
         didSet {
             updateViews()
         }
         
     }
-   
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var alarmSwitch: UISwitch!
@@ -25,16 +26,21 @@ class SwitchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
     func updateViews() {
         guard let alarm = alarm else {return}
+        
+        nameLabel.text = alarm.name
+        timeLabel.text = alarm.fireTimeAsString
+        alarmSwitch.isOn = alarm.enabled
+        
     }
-
+    
     @IBAction func switchValueChanged(_ sender: Any) {
     }
     
