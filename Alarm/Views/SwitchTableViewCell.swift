@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SwitchTableViewCellDelegate: class {
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell)
+}
+
 class SwitchTableViewCell: UITableViewCell {
     
     // SImilar to a landing pad
@@ -17,6 +21,8 @@ class SwitchTableViewCell: UITableViewCell {
         }
         
     }
+    
+    weak var delegate: SwitchTableViewCellDelegate?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -42,6 +48,7 @@ class SwitchTableViewCell: UITableViewCell {
     }
     
     @IBAction func switchValueChanged(_ sender: Any) {
+        delegate?.alarmWasToggled(sender: self)
     }
     
 }
