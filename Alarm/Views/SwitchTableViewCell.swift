@@ -47,8 +47,8 @@ class SwitchTableViewCell: UITableViewCell {
         
     }
     
-    @IBAction func switchValueChanged(_ sender: Any) {
-        delegate?.alarmWasToggled(sender: self)
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
+        delegate?.switchCellSwitchValueChanged(cell: self)
     }
     
 }

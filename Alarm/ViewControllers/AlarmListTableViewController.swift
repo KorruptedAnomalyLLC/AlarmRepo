@@ -31,9 +31,9 @@ class AlarmListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as?
         SwitchTableViewCell
         let alarm = AlarmController.shared.alarms[indexPath.row]
-        //        cell?.delegate = self
+    
         cell?.alarm = alarm
-        
+        cell?.delegate = self
         // Configure the cell...
         
         return cell ?? UITableViewCell()
@@ -83,4 +83,12 @@ class AlarmListTableViewController: UITableViewController {
      }
      */
     
+}
+
+extension AlarmListTableViewController: SwitchTableViewCellDelegate {
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
+        guard let alarm = cell.alarm else {return}
+        AlarmController.shared.toggleEnabled(for: alarm)
+        tableView.reloadData()
+    }
 }

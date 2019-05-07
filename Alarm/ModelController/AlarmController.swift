@@ -33,7 +33,10 @@ class AlarmController {
     func delete(alarm: Alarm) {
         guard let index = AlarmController.shared.alarms.index(of: alarm) else {return}
         alarms.remove(at: index)
-        
+    }
+    
+    func toggleEnabled(for alarm: Alarm) {
+        alarm.enabled = !alarm.enabled
         
     }
     
